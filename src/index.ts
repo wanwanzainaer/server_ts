@@ -5,6 +5,8 @@ import { router as loginRoutes } from './routes/loginRoutes';
 import { router as rootRoutes } from './routes/rootRoutes';
 import { router as logoutRoutes } from './routes/logoutRoutes';
 import { router as protectedRoutes } from './routes/protectRoutes';
+import { AppRouter } from './AppRouter';
+import './controllers/LoginController';
 
 const app = express();
 
@@ -13,7 +15,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieSession({ keys: ['asdfzxcv'] }));
 
 app.use('/', rootRoutes);
-app.use('/login', loginRoutes);
+app.use('/login', AppRouter.getInstance());
 app.use('/logout', logoutRoutes);
 app.use('/protected', protectedRoutes);
 

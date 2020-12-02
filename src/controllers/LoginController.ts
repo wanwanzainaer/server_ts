@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import { get, controller, post, bodyValidator } from './decorators/index';
 
-@controller('/')
+@controller('/login')
 class LoginController {
   @get('/')
   getLogin(req: Request, res: Response): void {
